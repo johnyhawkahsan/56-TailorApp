@@ -15,6 +15,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,22 +38,20 @@ import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Tutorial for Drawer layout
-    // https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f
+    private static final String TAG = MainActivity.class.getSimpleName();
 
-    // Following 2nd Tutorial
     //https://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/
     private NavigationView navigationView;
     private DrawerLayout drawer;
-    private View navHeader;
+    private View navHeader; // Navigation drawer Header with image and name and website
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
 
     // urls to load navigation header background image and profile image
-    private static final String urlNavHeaderBg = "https://api.androidhive.info/images/nav-menu-header-bg.jpg";
-    private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
+    //private static final String urlNavHeaderBg = "https://api.androidhive.info/images/nav-menu-header-bg.jpg"; // Now I downloaded this image and using as a static image
+    //private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
 
     // index to identify current nav menu item
     public static int navItemIndex = 0;
@@ -108,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         // initializing navigation menu
         setUpNavigationView();
 
+        // Means if we are opening app for the first time
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_HOME;
@@ -124,27 +124,21 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Ravi Tamada");
-        txtWebsite.setText("www.androidhive.info");
+        txtName.setText("Tailor App");
+        txtWebsite.setText("An App to facilitate tailors");
 
         // loading header background image
-        Glide.with(this).load(urlNavHeaderBg)
+        Glide.with(this).load(R.drawable.nav_menu_header)
                 .transition(new DrawableTransitionOptions()
                 .crossFade())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgNavHeaderBg);
 
         // Loading profile image
-        Glide.with(this).load(urlProfileImg)
+        Glide.with(this).load(R.mipmap.ic_launcher_round)
                 .transition(new DrawableTransitionOptions()
                 .crossFade())
                 .thumbnail(0.5f)
-                .apply(RequestOptions.bitmapTransform(new CircleTransform(MainActivity.this) {
-                    @Override
-                    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-
-                    }
-                }))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgProfile);
 
@@ -186,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = getHomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-                fragmentTransaction.replace(R.id.frame, fragment, CURRENT_TAG);
+                fragmentTransaction.replace(R.id.frame, fragment, CURRENT_TAG); // FrameLayout inside app_bar_main.xml
                 fragmentTransaction.commitAllowingStateLoss();
             }
         };
 
         // If mPendingRunnable is not null, then add to the message queue
         if (mPendingRunnable != null) {
-            mHandler.post(mPendingRunnable);
+            mHandler.post(mPendingRunnable); // Post Runnable to Handler
         }
 
         // show or hide the fab button
@@ -214,15 +208,15 @@ public class MainActivity extends AppCompatActivity {
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;
             case 1:
-                // photos
+                // sizes fragment
                 SizeFragment sizeFragment = new SizeFragment();
                 return sizeFragment;
             case 2:
-                // movies fragment
+                // order fragment
                 OrderFragment orderFragment = new OrderFragment();
                 return orderFragment;
             case 3:
-                // notifications fragment
+                // settings fragment
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
 
@@ -257,22 +251,27 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
+                        Log.d(TAG, "onNavigationItemSelected: switching to home fragment");
                         break;
                     case R.id.nav_size:
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_SIZES;
+                        Log.d(TAG, "onNavigationItemSelected: switching to sizes fragment");
                         break;
                     case R.id.nav_orders:
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_ORDERS;
+                        Log.d(TAG, "onNavigationItemSelected: switching to orders fragment");
                         break;
                     case R.id.nav_settings:
                         navItemIndex = 3;
                         CURRENT_TAG = TAG_SETTINGS;
+                        Log.d(TAG, "onNavigationItemSelected: switching to settings fragment");
                         break;
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
+                        Log.d(TAG, "onNavigationItemSelected: Launching About us activity");
                         drawer.closeDrawers();
                         return true;
                     default:
@@ -341,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
