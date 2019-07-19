@@ -1,9 +1,7 @@
 package com.johnyhawkdesigns.a56_tailorapp.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -26,15 +24,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
 import com.johnyhawkdesigns.a56_tailorapp.R;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeFragment;
-import com.johnyhawkdesigns.a56_tailorapp.other.CircleTransform;
 
-import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -248,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.home:
+                    case R.id.nav_home:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         Log.d(TAG, "onNavigationItemSelected: switching to home fragment");

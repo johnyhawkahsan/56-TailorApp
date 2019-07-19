@@ -10,7 +10,9 @@
         android:layout_height="250dp"
         android:layout_gravity="center"
         android:alpha="0.3"
+        android:contentDescription="TailorApp Icon"
         android:src="@mipmap/tailor_app_icon" />
+
 
 </FrameLayout>
 
