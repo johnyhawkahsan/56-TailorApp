@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
-    private static final String TAG_SIZES = "sizes";
+    private static final String TAG_SIZES = "size";
     private static final String TAG_ORDERS = "orders";
     private static final String TAG_SETTINGS = "settings";
     public static String CURRENT_TAG = TAG_HOME;
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;
             case 1:
-                // sizes fragment
+                // size fragment
                 SizeFragment sizeFragment = new SizeFragment();
                 return sizeFragment;
             case 2:
@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_size:
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_SIZES;
-                        Log.d(TAG, "onNavigationItemSelected: switching to sizes fragment");
+                        Log.d(TAG, "onNavigationItemSelected: switching to size fragment");
                         break;
                     case R.id.nav_orders:
                         navItemIndex = 2;
