@@ -1,6 +1,7 @@
 package com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -11,10 +12,11 @@ import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
 
 import java.util.List;
 
+@Dao
 public interface PersonDao {
 
 
-    @Query("Select * FROM person_table ORDER BY personName DESC")
+    @Query("Select * FROM person_table ORDER BY lastProfileUpdateDate DESC")
     //Person[] loadAll(); // We don't use this because we want to retain observability
     LiveData<List<Person>> getAllPersons();
 
@@ -24,7 +26,7 @@ public interface PersonDao {
 
     //Find Person by name
     @Query("SELECT * FROM person_table WHERE personName LIKE '%' || :personName || '%'")
-    LiveData<List<Person>> findChildByName(String personName);
+    LiveData<List<Person>> findPersonByName(String personName);
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
