@@ -6,20 +6,20 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.util.Log;
 
-import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.personDao;
-import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.sizeDao;
-import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.person;
-import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.size;
+import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.PersonDao;
+import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.SizeDao;
+import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
+import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Size;
 
-@Database(entities = {person.class, size.class}, version = 1)
+@Database(entities = {Person.class, Size.class}, version = 1)
 public abstract class TailorRoomDatabase extends RoomDatabase {
 
     private static final String TAG = TailorRoomDatabase.class.getSimpleName();
     private static String DB_NAME = "tailor-db";
 
     // get DAO objects
-    public abstract personDao personDao();
-    public abstract sizeDao sizeDao();
+    public abstract PersonDao personDao();
+    public abstract SizeDao sizeDao();
 
     //We only need one instance of this class, so we make it singleton
     private static TailorRoomDatabase DBINSTANCE;
