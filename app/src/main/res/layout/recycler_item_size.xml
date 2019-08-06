@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    app:cardElevation="@dimen/cardview_default_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:padding="@dimen/default_padding">
+
+
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            tools:text="Ahsan Taqveem" />
+
+        <TextView
+            android:id="@+id/customerMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:lines="1"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="03449085371" />
+
+        <TextView
+            android:id="@+id/customerMobileNoAlternate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:lines="1"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="03000000000" />
+
+
+        <TextView
+            android:id="@+id/customerAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="16sp"
+            tools:text="Shadbagh Colony, O/S Yekkatoot, Street 1, House 778-B, Peshawar" />
+
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

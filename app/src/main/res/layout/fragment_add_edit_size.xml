@@ -43,7 +43,7 @@
                             android:id="@+id/textInputName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Name"
+                            android:hint="@string/name"
                             android:inputType="textPersonName"
                             android:lines="1" />
 
@@ -59,7 +59,7 @@
                             android:id="@+id/textInputMobileNo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Mobile No"
+                            android:hint="@string/mobile_no"
                             android:inputType="text"
                             android:lines="1" />
 
@@ -73,7 +73,7 @@
                             android:id="@+id/textInputMobileNoAlternate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Mobile No (Alternate)"
+                            android:hint="@string/mobile_no_alternate"
                             android:inputType="text"
                             android:lines="1" />
 
@@ -87,7 +87,7 @@
                             android:id="@+id/textInputAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Address"
+                            android:hint="@string/address"
                             android:inputType="text"
                             android:lines="3" />
 
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Size"
+                        android:text="@string/size"
                         android:textColor="@color/design_default_color_primary"
                         android:textSize="20sp" />
 
@@ -227,19 +227,6 @@
                     </android.support.design.widget.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textInputProfileUpdateDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Last Profile Update Date"
-                            android:inputType="date"
-                            android:lines="1" />
-
-                    </android.support.design.widget.TextInputLayout>
 
                     <Button
                         android:id="@+id/saveSize"
@@ -258,8 +245,6 @@
 
 
     </ScrollView>
-
-
 
 
 </FrameLayout>

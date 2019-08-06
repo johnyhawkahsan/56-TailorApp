@@ -1,5 +1,6 @@
 package com.johnyhawkdesigns.a56_tailorapp.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -29,6 +30,8 @@ import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeFragment;
+import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
+import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.viewModel.PersonViewModel;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,11 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
-
-    // urls to load navigation header background image and profile image
-    //private static final String urlNavHeaderBg = "https://api.androidhive.info/images/nav-menu-header-bg.jpg"; // Now I downloaded this image and using as a static image
-    //private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
-
+    
     // index to identify current nav menu item
     public static int navItemIndex = 0;
 
@@ -64,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     // flag to load home fragment when user presses back key
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
+    
+    private PersonViewModel personViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
+        
+        
+        // Get ViewModel
+        personViewModel = new PersonViewModel(getApplication());
 
     }
 
@@ -352,8 +357,30 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
+        if (id == R.id.deleteAllRecords) {
+
+            Log.d(TAG, "onOptionsItemSelected: deleteAllRecords");
+            
+            // Build alert dialog for confirmation
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Do you want to delete all persons/sizes data??");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AppUtils.showMessage(MainActivity.this, "Delete all persons success" );
+                    personViewModel.deleteAllPersons();
+                    //adapter.notifyDataSetChanged();
+                    finish();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            AlertDialog ad = builder.create();
+            ad.show();
             return true;
         }
 

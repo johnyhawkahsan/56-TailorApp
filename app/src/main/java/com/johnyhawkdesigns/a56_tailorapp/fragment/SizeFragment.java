@@ -3,10 +3,14 @@ package com.johnyhawkdesigns.a56_tailorapp.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.johnyhawkdesigns.a56_tailorapp.R;
 
@@ -21,6 +25,9 @@ import com.johnyhawkdesigns.a56_tailorapp.R;
 public class SizeFragment extends Fragment {
 
     private static final String TAG = SizeFragment.class.getSimpleName();
+
+    private boolean addingNewRecord = true; // adding (true) or editing (false)
+    FloatingActionButton floatingActionButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,10 +72,32 @@ public class SizeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_size, container, false);
+        View view =  inflater.inflate(R.layout.fragment_size, container, false);
+
+        //When Floating button is clicked, we need to be redirected to AddEditPersonFragment
+        floatingActionButton = (FloatingActionButton) view.findViewById(R.id.addNewSize);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Launch AddEditPersonFragment
+                Log.d(TAG, "onClick: ");
+                Toast.makeText(getActivity(), "Add New Person", Toast.LENGTH_SHORT).show();
+
+                AddEditPersonFragment addEditPersonFragment = new AddEditPersonFragment();
+                //Bundle args = new Bundle();
+                //args.putInt("id", 12345);
+                //addEditPersonFragment.setArguments(args);
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame, addEditPersonFragment);
+                transaction.commit();
+            }
+        });
+
+        return view;
     }
 
 
