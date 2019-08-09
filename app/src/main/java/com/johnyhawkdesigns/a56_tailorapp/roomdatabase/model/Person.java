@@ -13,9 +13,12 @@ import java.util.Date;
 @Entity(tableName = "person_table")
 public class Person {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "personID")
+    private int personID;
+
     @ColumnInfo(name = "mobileNo")
-    private int mobileNo;
+    private String mobileNo;
 
     @Nullable
     @ColumnInfo(name = "personName")
@@ -23,7 +26,7 @@ public class Person {
 
     @Nullable
     @ColumnInfo(name = "mobileNoAlternate")
-    private int mobileNoAlternate;
+    private String mobileNoAlternate;
 
     @Nullable
     @ColumnInfo(name = "personAddress")
@@ -70,11 +73,24 @@ public class Person {
     @TypeConverters({DateTypeConverter.class})
     private Date lastProfileUpdateDate;
 
-    public int getMobileNo() {
+
+
+
+
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
+
+    public String getMobileNo() {
         return mobileNo;
     }
 
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -88,11 +104,11 @@ public class Person {
     }
 
     @Nullable
-    public int getMobileNoAlternate() {
+    public String getMobileNoAlternate() {
         return mobileNoAlternate;
     }
 
-    public void setMobileNoAlternate(@Nullable int mobileNoAlternate) {
+    public void setMobileNoAlternate(@Nullable String mobileNoAlternate) {
         this.mobileNoAlternate = mobileNoAlternate;
     }
 

@@ -29,7 +29,7 @@ import com.johnyhawkdesigns.a56_tailorapp.R;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
-import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeFragment;
+import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeListFragment;
 import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.viewModel.PersonViewModel;
 
@@ -209,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
                 return homeFragment;
             case 1:
                 // Size fragment
-                SizeFragment sizeFragment = new SizeFragment();
-                return sizeFragment;
+                SizeListFragment sizeListFragment = new SizeListFragment();
+                return sizeListFragment;
             case 2:
                 // order fragment
                 OrderFragment orderFragment = new OrderFragment();

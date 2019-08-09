@@ -77,10 +77,10 @@ public class PersonRepository implements AsyncResult {
     }
 
     // Note that this method also returns void, but we capture returned "person" via delegation pattern (Using an interface "AsyncResult")
-    public void findPersonWithMobileNo(int mobileNo) {
+    public void findPersonWithPersonID(int personID) {
         PersonRepository.queryAsyncTask task = new PersonRepository.queryAsyncTask(personDao);
         task.delegate = this; // PersonRepository delegate inside queryAsyncTask class is assigned a value which is this exact parent class "PersonRepository"
-        task.execute(mobileNo); // We provide "mobileNo" to this asyncTask as input
+        task.execute(personID); // We provide "mobileNo" to this asyncTask as input
     }
 
     // We pass this "Integer" primitive type (MobileNo) and in return, we receive Person object
@@ -97,8 +97,8 @@ public class PersonRepository implements AsyncResult {
 
         // passed an Integer (MobileNo) for which the search is to be performed against Persons, passes it to the getPersonWithMobileNo() method of the DAO and returns a list of matching Person entity objects         @Override
         protected Person doInBackground(Integer... params) {
-            Log.d(TAG, "doInBackground: mobileNo in params = " + params[0]);
-            return asyncTaskDao.getPersonWithMobileNo(params[0]); // call our dao sqliteQuery inside doInBackground
+            Log.d(TAG, "doInBackground: personID in params = " + params[0]);
+            return asyncTaskDao.getPersonWithPersonID(params[0]); // call our dao sqliteQuery inside doInBackground
         }
 
         @Override
@@ -123,8 +123,8 @@ public class PersonRepository implements AsyncResult {
 
 
 // ===============================================Delete single person Method==========================================================//
-    public void deletePersonWithMobileNo(int mobileNo) {
-        new deleteAsyncTask(personDao).execute(mobileNo);
+    public void deletePersonWithPersonID(int personID) {
+        new deleteAsyncTask(personDao).execute(personID);
     }
 
     private static class deleteAsyncTask extends AsyncTask<Integer, Void, Void> {
@@ -139,7 +139,7 @@ public class PersonRepository implements AsyncResult {
         @Override
         protected Void doInBackground(final Integer... params) {
             Log.d(TAG, "doInBackground: delete person with mobileNo = " + params[0]);
-            asyncTaskDao.deleteChildWithID(params[0]);
+            asyncTaskDao.deletePersonWithID(params[0]);
             return null;
         }
     }

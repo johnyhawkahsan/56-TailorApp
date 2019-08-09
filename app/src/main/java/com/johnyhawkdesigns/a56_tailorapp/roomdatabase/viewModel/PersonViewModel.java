@@ -38,8 +38,8 @@ public class PersonViewModel extends AndroidViewModel{
     }
 
     // find method - this method will begin searching in personRepository, and then returned results are stored within search result returned by AsyncTask
-    public void findPersonWithMobileNo(int mobileNo){
-        personRepository.findPersonWithMobileNo(mobileNo);
+    public void findPersonWithPersonID(int personID){
+        personRepository.findPersonWithPersonID(personID);
     }
 
     public MutableLiveData<Person> getSearchResults() {
@@ -47,8 +47,8 @@ public class PersonViewModel extends AndroidViewModel{
     }
 
     // Delete specific record
-    public void deletePersonWithMobileNo(int mobileNo){
-        personRepository.deletePersonWithMobileNo(mobileNo);
+    public void deletePersonWithPersonID(int personID){
+        personRepository.deletePersonWithPersonID(personID);
     }
 
     // delete all records

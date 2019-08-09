@@ -21,8 +21,12 @@ public interface PersonDao {
     LiveData<List<Person>> getAllPersons();
 
 
-    @Query("SELECT * FROM person_table WHERE mobileNo = :mobileNo")
-    Person getPersonWithMobileNo(int mobileNo);
+    @Query("SELECT * FROM person_table WHERE personID = :personID")
+    Person getPersonWithPersonID(int personID);
+
+    //Find Person by mobileNO
+    @Query("SELECT * FROM person_table WHERE mobileNO LIKE '%' || :mobileNO || '%'")
+    LiveData<List<Person>> findPersonByMobileNo(String mobileNO);
 
     //Find Person by name
     @Query("SELECT * FROM person_table WHERE personName LIKE '%' || :personName || '%'")
@@ -30,7 +34,7 @@ public interface PersonDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Person person); // we don't want to return "long" id because we are using MobileNo as PrimaryKey
+    void insert(Person person); // we don't want to return "long" id
 
     @Update
     void update(Person person);
@@ -38,8 +42,8 @@ public interface PersonDao {
     @Delete
     void delete(Person person);
 
-    @Query("DELETE FROM person_table WHERE mobileNo = :mobileNo")
-    void deleteChildWithID(int mobileNo);
+    @Query("DELETE FROM person_table WHERE personID = :personID")
+    void deletePersonWithID(int personID);
 
     @Query("DELETE FROM person_table")
     void deleteAll();
