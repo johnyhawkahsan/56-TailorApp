@@ -16,11 +16,11 @@ import java.util.List;
 public interface PersonDao {
 
 
-    @Query("Select * FROM person_table ORDER BY lastProfileUpdateDate DESC")
+    @Query("Select * FROM person_table ORDER BY personID DESC")
     //Person[] loadAll(); // We don't use this because we want to retain observability
     LiveData<List<Person>> getAllPersons();
 
-
+    //Find Person by Person ID
     @Query("SELECT * FROM person_table WHERE personID = :personID")
     Person getPersonWithPersonID(int personID);
 

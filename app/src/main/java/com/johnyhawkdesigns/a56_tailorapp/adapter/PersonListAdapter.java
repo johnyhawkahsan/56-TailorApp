@@ -60,7 +60,7 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
 
         @Override
         public void onClick(View v) {
-            Person person = mPersons.get(getAdapterPosition());
+            Person person = mPersons.get(getAdapterPosition());// Get item at this specific position from list
             int personID = person.getPersonID();
             String name = person.getPersonName();
             String mobileNo = person.getMobileNo();

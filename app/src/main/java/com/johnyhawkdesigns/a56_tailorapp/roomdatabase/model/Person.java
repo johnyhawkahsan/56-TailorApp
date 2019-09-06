@@ -8,10 +8,11 @@ import android.support.annotation.Nullable;
 
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.typeConverters.DateTypeConverter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(tableName = "person_table")
-public class Person {
+public class Person implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "personID")

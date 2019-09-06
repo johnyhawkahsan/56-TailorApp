@@ -26,6 +26,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.johnyhawkdesigns.a56_tailorapp.R;
+import com.johnyhawkdesigns.a56_tailorapp.fragment.AddEditPersonFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
@@ -34,7 +35,7 @@ import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.viewModel.PersonViewModel;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AddEditPersonFragment.AddEditFragmentListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -396,6 +397,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onAddEditCompleted(int personID) {
+        Log.d(TAG, "onAddEditCompleted: personID = " + personID);
+    }
 }
 
 
