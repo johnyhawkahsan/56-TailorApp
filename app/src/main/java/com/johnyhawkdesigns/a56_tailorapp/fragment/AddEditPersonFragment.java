@@ -184,7 +184,7 @@ public class AddEditPersonFragment extends Fragment {
                     personViewModel.insert(person);
                     Log.d(TAG, "onClick: person named: " + name + " added to the database");
                     AppUtils.showMessage(getActivity(), "person named: " + name + " added to the database");
-                    //addEditFragmentListener.onAddEditCompleted(personID);
+                    addEditFragmentListener.onAddEditCompleted(personID);
                     getFragmentManager().popBackStack(); // finish this fragment
                 }
 

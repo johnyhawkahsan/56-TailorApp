@@ -63,7 +63,6 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
             Person person = mPersons.get(getAdapterPosition());// Get item at this specific position from list
             int personID = person.getPersonID();
             String name = person.getPersonName();
-            String mobileNo = person.getMobileNo();
             AppUtils.showMessage(mContext, "Clicked on Person with name = " + name + ", personID = " + personID);
             Log.d(TAG, "onClick: Clicked on Person with name = " + name + ", personID = " + personID);
 
@@ -102,7 +101,5 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
             return  mPersons.size();
 
     }
-
-
 
 }

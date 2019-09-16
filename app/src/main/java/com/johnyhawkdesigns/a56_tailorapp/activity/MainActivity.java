@@ -30,12 +30,16 @@ import com.johnyhawkdesigns.a56_tailorapp.fragment.AddEditPersonFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
+import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeDetailFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeListFragment;
 import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.viewModel.PersonViewModel;
 
 
-public class MainActivity extends AppCompatActivity implements AddEditPersonFragment.AddEditFragmentListener{
+public class MainActivity extends AppCompatActivity implements
+        AddEditPersonFragment.AddEditFragmentListener,
+        SizeListFragment.SizeListFragmentListener,
+        SizeDetailFragment.SizeDetailFragmentListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -400,6 +404,30 @@ public class MainActivity extends AppCompatActivity implements AddEditPersonFrag
     @Override
     public void onAddEditCompleted(int personID) {
         Log.d(TAG, "onAddEditCompleted: personID = " + personID);
+    }
+
+    @Override
+    public void onPersonSelected(int personID) {
+        Log.d(TAG, "onPersonSelected: personID = " + personID);
+
+        SizeDetailFragment sizeDetailFragment = new SizeDetailFragment();
+        Bundle args = new Bundle();
+        args.putInt("personID", personID);
+        sizeDetailFragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, sizeDetailFragment);
+        transaction.commit();
+    }
+
+    @Override
+    public void onPersonDeleted() {
+        Log.d(TAG, "onPersonDeleted: ");
+    }
+
+    @Override
+    public void onEditPerson(int personID) {
+        Log.d(TAG, "onEditPerson: personID = " + personID);
     }
 }
 
