@@ -44,7 +44,7 @@ public class AppUtils {
 
     // Toast message outline
     public static void showMessage(Context context, String message) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
 

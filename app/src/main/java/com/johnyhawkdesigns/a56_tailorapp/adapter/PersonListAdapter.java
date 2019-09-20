@@ -46,10 +46,11 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
     //PersonViewHolder class
     class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private final TextView customerName, customerMobileNo, customerMobileNoAlternate, customerAddress;
+        private final TextView customerID, customerName, customerMobileNo, customerMobileNoAlternate, customerAddress;
 
         public PersonViewHolder(@NonNull View itemView) {
             super(itemView);
+            customerID = itemView.findViewById(R.id.customerID);
             customerName = itemView.findViewById(R.id.customerName);
             customerMobileNo = itemView.findViewById(R.id.customerMobileNo);
             customerMobileNoAlternate = itemView.findViewById(R.id.customerMobileNoAlternate);
@@ -68,7 +69,6 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
 
             // This interface method sends mobileNo to MainActivity's PersonListAdapter constructor method.
             recyclerViewItemClickListener.onClick(personID);
-
         }
     }
 
@@ -83,12 +83,14 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
     @Override
     public void onBindViewHolder(@NonNull PersonViewHolder personViewHolder, int position) {
         Person currentPerson = mPersons.get(position);
+        personViewHolder.customerID.setText("PersonID = " + String.valueOf(currentPerson.getPersonID()));
         personViewHolder.customerName.setText(currentPerson.getPersonName());
         personViewHolder.customerMobileNo.setText(currentPerson.getMobileNo());
         personViewHolder.customerMobileNoAlternate.setText(currentPerson.getMobileNoAlternate());
         personViewHolder.customerAddress.setText(currentPerson.getPersonAddress());
 
-        Log.d(TAG, "onBindViewHolder: currentPerson.getMobileNo() = " + currentPerson.getMobileNo() + ", currentPerson.getPersonName() = " + currentPerson.getPersonName());
+        Log.d(TAG, "onBindViewHolder: currentPerson.getPersonID() = " + currentPerson.getPersonID() +
+                ", \ncurrentPerson.getPersonName() = " + currentPerson.getPersonName());
     }
 
     // getItemCount() is called many times, and when it is first called, mPersons has not been updated (means initially, it's null, and we can't return null).

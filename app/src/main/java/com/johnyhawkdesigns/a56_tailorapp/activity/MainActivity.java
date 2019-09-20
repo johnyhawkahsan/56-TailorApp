@@ -110,12 +110,15 @@ public class MainActivity extends AppCompatActivity implements
 
         // Means if we are opening app for the first time
         if (savedInstanceState == null) {
+            Log.d(TAG, "onCreate: savedInstanceState == null");
             navItemIndex = 0;
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
-        
-        
+
+
+
+
         // Get ViewModel
         personViewModel = new PersonViewModel(getApplication());
 
@@ -167,6 +170,9 @@ public class MainActivity extends AppCompatActivity implements
         // set toolbar title
         setToolbarTitle();
 
+        /*
+        //*****I skipped this code below helps solve the "stuck fragment" problem when I visit detail view of user and return back
+
         // if user select the current navigation menu again, don't do anything just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
             drawer.closeDrawers();
@@ -175,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements
             toggleFab();
             return;
         }
+        */
+
 
         // Sometimes, when fragment has huge data, screen seems hanging when switching between navigation menus
         // So using runnable, the fragment is loaded with cross fade effect This effect can be seen in GMail app
@@ -417,6 +425,7 @@ public class MainActivity extends AppCompatActivity implements
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame, sizeDetailFragment);
+        transaction.addToBackStack(null); // By using this line, we will be able to return back
         transaction.commit();
     }
 
@@ -428,6 +437,17 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onEditPerson(int personID) {
         Log.d(TAG, "onEditPerson: personID = " + personID);
+
+        AddEditPersonFragment addEditPersonFragment = new AddEditPersonFragment();
+        Bundle args = new Bundle();
+        args.putInt("personID", personID);
+        addEditPersonFragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, addEditPersonFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
     }
 }
 

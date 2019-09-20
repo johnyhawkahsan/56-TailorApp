@@ -108,19 +108,29 @@ public class AddEditPersonFragment extends Fragment {
                 Log.d(TAG, "onCreateView: received personID = " + personID + ", addingNewRecord = false");
                 addingNewRecord = false;
 
-            /*
-            personViewModel.findPersonWithID(personID);
+
+            personViewModel.findPersonWithPersonID(personID);
             personViewModel.getSearchResults().observe(this, new Observer<Person>() {
                 @Override
                 public void onChanged(@Nullable Person person) {
-                    textInputName.setText(person.getName());
-                    textInputMobileNo
 
-
+                    textInputName.setText(person.getPersonName());
+                    textInputMobileNo.setText(person.getMobileNo());
+                    textInputMobileNoAlternate.setText(person.getMobileNoAlternate());
+                    textInputAddress.setText(person.getPersonAddress());
+                    textInputNeck.setText(String.valueOf(person.getPerson_neck()));
+                    textInputWaist.setText(String.valueOf(person.getPerson_waist()));
+                    textInputHip.setText(String.valueOf(person.getPerson_hip()));
+                    textInputChest.setText(String.valueOf(person.getPerson_chest()));
+                    textInputArm.setText(String.valueOf(person.getPerson_arm()));
+                    textInputHandCuff.setText(String.valueOf(person.getPerson_handcuff()));
+                    textInputShirtLength.setText(String.valueOf(person.getPerson_shirtLength()));
+                    textInputLegOpening.setText(String.valueOf(person.getPerson_legOpening()));
+                    textInputProfileUpdateDate.setText(profileUpdateDateString);
 
                 }
             });
-             */
+
             }
         }
 
@@ -177,6 +187,7 @@ public class AddEditPersonFragment extends Fragment {
                 person.setPerson_handcuff(Integer.parseInt(size_handCuff));
                 person.setPerson_shirtLength(Integer.parseInt(size_shirtLength));
                 person.setPerson_legOpening(Integer.parseInt(size_legOpening));
+                person.setLastProfileUpdateDate(currentDate);
 
 
                 // If addingNewRecord is true and we are not editing existing record
