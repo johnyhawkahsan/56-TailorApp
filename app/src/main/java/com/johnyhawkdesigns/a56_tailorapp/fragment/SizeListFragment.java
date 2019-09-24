@@ -1,5 +1,6 @@
 package com.johnyhawkdesigns.a56_tailorapp.fragment;
 
+import android.app.SearchManager;
 import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.os.Bundle;
@@ -7,10 +8,16 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -46,10 +53,13 @@ public class SizeListFragment extends Fragment {
     private PersonViewModel personViewModel;
     FloatingActionButton floatingActionButton;
 
+    SearchView searchView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_sizes_list, container, false);// Inflate the layout for this fragment
+
 
         recyclerView = view.findViewById(R.id.recyclerViewSizeList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -57,6 +67,15 @@ public class SizeListFragment extends Fragment {
         // Accessing items from <include layout="@layout/empty_data"/> empty_data layout
         emptyTextView = view.findViewById(R.id.tv__empty);
         emptyImageView = view.findViewById(R.id.img__empty);
+
+
+
+
+        // setup for searchView functionality
+        searchView = (SearchView) view.findViewById(R.id.searchSize);
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE); // Associate searchable configuration with the SearchView
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
 
         personViewModel = new PersonViewModel(getActivity().getApplication());
         
@@ -73,7 +92,7 @@ public class SizeListFragment extends Fragment {
         // get all record from our viewModel to display inside RecyclerView
         personViewModel.getAllPersons().observe(this, new Observer<List<Person>>() {
             @Override
-            public void onChanged(@Nullable List<Person> people) {
+            public void onChanged(@Nullable final List<Person> people) {
                 Log.d(TAG, "onChanged: personList size = " + people.size());
 
                 // Loop through all returned list items and display in logs
@@ -90,6 +109,25 @@ public class SizeListFragment extends Fragment {
                     emptyTextView.setVisibility(View.VISIBLE);
                     emptyImageView.setVisibility(View.VISIBLE);
                 }
+
+                // ---------------------SearchView functional code-----------------------------///
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        // filter recycler view when query submitted
+                        personListAdapter.getFilter().filter(query);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String query) {
+                        // filter recycler view when text is changed
+                        personListAdapter.getFilter().filter(query);
+                        return false;
+                    }
+                });
+
+
 
             }
         });
@@ -115,6 +153,9 @@ public class SizeListFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+
+
 
         return view;
     }
