@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private static int SPLASH_TIMEOUT = 2000; //This is 2 seconds
+    Handler splashHandler = new Handler();
+
     //https://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -73,10 +76,34 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // To add appropriate delay for screen.
+        try{
+            Thread.sleep(SPLASH_TIMEOUT);
+        } catch (Exception e){
+            Log.d(TAG, "onCreate: e = " + e);
+        }
+
+        // Make sure this is before calling super.onCreate
+        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        splashHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }, SPLASH_TIMEOUT);
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar); // Note: Inside styles.xml, we defined AppTheme.NoActionBar and used inside AndroidMANIFEST for MainActivity's theme @style/AppTheme.NoActionBar
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar); // I had error at this line after using splshscreen, so I used Theme.AppCompat.Light.NoActionBar in styles for AppTheme
+
+
+
+
 
         mHandler = new Handler();
 

@@ -20,7 +20,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:alpha="0.3"
-            android:text="Tailor App"
+            android:text="ٹیلر ماسٹر"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.504"
