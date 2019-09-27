@@ -46,12 +46,15 @@ public class SizeDetailFragment extends Fragment {
     private TextView tvMobileNoAlternate;
     private TextView tvAddress;
     private TextView tvNeck;
+    private TextView tvChest;
     private TextView tvWaist;
     private TextView tvHip;
-    private TextView tvChest;
-    private TextView tvArm;
-    private TextView tvHandCuff;
+    private TextView tvPantSeat;
     private TextView tvShirtLength;
+    private TextView tvShoulderWidth;
+    private TextView tvArm;
+    private TextView tvCoatSleeve;
+    private TextView tvHandCuff;
     private TextView tvLegOpening;
     private TextView tvLastProfileUpdateDate;
 
@@ -76,12 +79,15 @@ public class SizeDetailFragment extends Fragment {
         tvMobileNoAlternate = view.findViewById(R.id.tvMobileNoAlternate);
         tvAddress = view.findViewById(R.id.tvAddress);
         tvNeck = view.findViewById(R.id.tvNeck);
+        tvChest = view.findViewById(R.id.tvChest);
         tvWaist = view.findViewById(R.id.tvWaist);
         tvHip = view.findViewById(R.id.tvHip);
-        tvChest = view.findViewById(R.id.tvChest);
-        tvArm = view.findViewById(R.id.tvArm);
-        tvHandCuff = view.findViewById(R.id.tvHandCuff);
+        tvPantSeat = view.findViewById(R.id.tvPantSeat);
         tvShirtLength = view.findViewById(R.id.tvShirtLength);
+        tvShoulderWidth = view.findViewById(R.id.tvShoulderWidth);
+        tvArm = view.findViewById(R.id.tvArm);
+        tvCoatSleeve = view.findViewById(R.id.tvCoatSleeve);
+        tvHandCuff = view.findViewById(R.id.tvHandCuff);
         tvLegOpening = view.findViewById(R.id.tvLegOpening);
         tvLastProfileUpdateDate = view.findViewById(R.id.tvLastProfileUpdateDate);
 
@@ -102,13 +108,17 @@ public class SizeDetailFragment extends Fragment {
                 tvMobileNo.setText(person.getMobileNo());
                 tvMobileNoAlternate.setText(person.getMobileNoAlternate());
                 tvAddress.setText(person.getPersonAddress());
+
                 tvNeck.setText(String.valueOf(person.getPerson_neck()));
+                tvChest.setText(String.valueOf(person.getPerson_chest()));
                 tvWaist.setText(String.valueOf(person.getPerson_waist()));
                 tvHip.setText(String.valueOf(person.getPerson_hip()));
-                tvChest.setText(String.valueOf(person.getPerson_chest()));
-                tvArm.setText(String.valueOf(person.getPerson_arm()));
-                tvHandCuff.setText(String.valueOf(person.getPerson_handcuff()));
+                tvPantSeat.setText(String.valueOf(person.getPerson_pantSeat()));
                 tvShirtLength.setText(String.valueOf(person.getPerson_shirtLength()));
+                tvShoulderWidth.setText(String.valueOf(person.getPerson_ShoulderWidth()));
+                tvArm.setText(String.valueOf(person.getPerson_arm()));
+                tvCoatSleeve.setText(String.valueOf(person.getPerson_CoatSleeve()));
+                tvHandCuff.setText(String.valueOf(person.getPerson_handcuff()));
                 tvLegOpening.setText(String.valueOf(person.getPerson_legOpening()));
                 tvLastProfileUpdateDate.setText(String.valueOf(person.getLastProfileUpdateDate()));
 

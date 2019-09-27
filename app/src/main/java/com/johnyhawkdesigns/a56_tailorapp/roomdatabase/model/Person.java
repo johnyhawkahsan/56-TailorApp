@@ -69,6 +69,45 @@ public class Person implements Serializable{
     @ColumnInfo(name = "person_legOpening")
     private int person_legOpening;
 
+    @Nullable
+    @ColumnInfo(name = "person_pantSeat")
+    private int person_pantSeat;
+
+    @Nullable
+    @ColumnInfo(name = "person_ShoulderWidth")
+    private int person_ShoulderWidth;
+
+    @Nullable
+    public int getPerson_pantSeat() {
+        return person_pantSeat;
+    }
+
+    public void setPerson_pantSeat(@Nullable int person_pantSeat) {
+        this.person_pantSeat = person_pantSeat;
+    }
+
+    @Nullable
+    public int getPerson_ShoulderWidth() {
+        return person_ShoulderWidth;
+    }
+
+    public void setPerson_ShoulderWidth(@Nullable int person_ShoulderWidth) {
+        this.person_ShoulderWidth = person_ShoulderWidth;
+    }
+
+    @Nullable
+    public int getPerson_CoatSleeve() {
+        return person_CoatSleeve;
+    }
+
+    public void setPerson_CoatSleeve(@Nullable int person_CoatSleeve) {
+        this.person_CoatSleeve = person_CoatSleeve;
+    }
+
+    @Nullable
+    @ColumnInfo(name = "person_CoatSleeve")
+    private int person_CoatSleeve;
+
 
     @ColumnInfo(name = "lastProfileUpdateDate")
     @TypeConverters({DateTypeConverter.class})

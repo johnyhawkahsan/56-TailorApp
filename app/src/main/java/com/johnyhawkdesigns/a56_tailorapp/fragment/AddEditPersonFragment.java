@@ -40,13 +40,17 @@ public class AddEditPersonFragment extends Fragment {
     private TextInputEditText textInputMobileNo;
     private TextInputEditText textInputMobileNoAlternate;
     private TextInputEditText textInputAddress;
+
     private TextInputEditText textInputNeck;
+    private TextInputEditText textInputChest;
     private TextInputEditText textInputWaist;
     private TextInputEditText textInputHip;
-    private TextInputEditText textInputChest;
-    private TextInputEditText textInputArm;
-    private TextInputEditText textInputHandCuff;
+    private TextInputEditText textInputPantSeat;
     private TextInputEditText textInputShirtLength;
+    private TextInputEditText textInputShoulderWidth;
+    private TextInputEditText textInputArm;
+    private TextInputEditText textInputCoatSleeve;
+    private TextInputEditText textInputHandCuff;
     private TextInputEditText textInputLegOpening;
     private TextView textInputProfileUpdateDate;
     private Button saveSize;
@@ -59,12 +63,15 @@ public class AddEditPersonFragment extends Fragment {
     String mobileNoAlternate = "";
     String address = "";
     String size_neck = "";
+    String size_chest = "";
     String size_waist = "";
     String size_hip = "";
-    String size_chest = "";
-    String size_arm = "";
-    String size_handCuff = "";
+    String size_pantSeat = "";
     String size_shirtLength = "";
+    String size_shoulderWidth = "";
+    String size_arm = "";
+    String size_coatSleeve = "";
+    String size_handCuff = "";
     String size_legOpening = "";
 
     private int personID = 0;
@@ -82,12 +89,15 @@ public class AddEditPersonFragment extends Fragment {
         textInputMobileNoAlternate = view.findViewById(R.id.textInputMobileNoAlternate);
         textInputAddress = view.findViewById(R.id.textInputAddress);
         textInputNeck = view.findViewById(R.id.textInputNeck);
+        textInputChest = view.findViewById(R.id.textInputChest);
         textInputWaist = view.findViewById(R.id.textInputWaist);
         textInputHip = view.findViewById(R.id.textInputHip);
-        textInputChest = view.findViewById(R.id.textInputChest);
-        textInputArm = view.findViewById(R.id.textInputArm);
-        textInputHandCuff = view.findViewById(R.id.textInputHandCuff);
+        textInputPantSeat = view.findViewById(R.id.textInputPantSeat);
         textInputShirtLength = view.findViewById(R.id.textInputShirtLength);
+        textInputShoulderWidth = view.findViewById(R.id.textInputShoulderWidth);
+        textInputArm = view.findViewById(R.id.textInputArm);
+        textInputCoatSleeve = view.findViewById(R.id.textInputCoatSleeve);
+        textInputHandCuff = view.findViewById(R.id.textInputHandCuff);
         textInputLegOpening = view.findViewById(R.id.textInputLegOpening);
         textInputProfileUpdateDate = view.findViewById(R.id.textInputProfileUpdateDate);
 
@@ -119,12 +129,15 @@ public class AddEditPersonFragment extends Fragment {
                     textInputMobileNoAlternate.setText(person.getMobileNoAlternate());
                     textInputAddress.setText(person.getPersonAddress());
                     textInputNeck.setText(String.valueOf(person.getPerson_neck()));
+                    textInputChest.setText(String.valueOf(person.getPerson_chest()));
                     textInputWaist.setText(String.valueOf(person.getPerson_waist()));
                     textInputHip.setText(String.valueOf(person.getPerson_hip()));
-                    textInputChest.setText(String.valueOf(person.getPerson_chest()));
-                    textInputArm.setText(String.valueOf(person.getPerson_arm()));
-                    textInputHandCuff.setText(String.valueOf(person.getPerson_handcuff()));
+                    textInputPantSeat.setText(String.valueOf(person.getPerson_pantSeat()));
                     textInputShirtLength.setText(String.valueOf(person.getPerson_shirtLength()));
+                    textInputShoulderWidth.setText(String.valueOf(person.getPerson_ShoulderWidth()));
+                    textInputArm.setText(String.valueOf(person.getPerson_arm()));
+                    textInputCoatSleeve.setText(String.valueOf(person.getPerson_CoatSleeve()));
+                    textInputHandCuff.setText(String.valueOf(person.getPerson_handcuff()));
                     textInputLegOpening.setText(String.valueOf(person.getPerson_legOpening()));
                     textInputProfileUpdateDate.setText(profileUpdateDateString);
 
@@ -156,12 +169,15 @@ public class AddEditPersonFragment extends Fragment {
             mobileNoAlternate = textInputMobileNoAlternate.getText().toString();
             address = textInputAddress.getText().toString();
             size_neck = textInputNeck.getText().toString();
+            size_chest = textInputChest.getText().toString();
             size_waist = textInputWaist.getText().toString();
             size_hip = textInputHip.getText().toString();
-            size_chest = textInputChest.getText().toString();
-            size_arm = textInputArm.getText().toString();
-            size_handCuff = textInputHandCuff.getText().toString();
+            size_pantSeat = textInputPantSeat.getText().toString();
             size_shirtLength = textInputShirtLength.getText().toString();
+            size_shoulderWidth = textInputShoulderWidth.getText().toString();
+            size_arm = textInputArm.getText().toString();
+            size_coatSleeve = textInputCoatSleeve.getText().toString();
+            size_handCuff = textInputHandCuff.getText().toString();
             size_legOpening = textInputLegOpening.getText().toString();
 
             if (name.length() == 0 || mobileNo.length() == 0 || mobileNoAlternate.length() == 0 || address.length() == 0
@@ -180,12 +196,16 @@ public class AddEditPersonFragment extends Fragment {
                 person.setMobileNoAlternate(mobileNoAlternate);
                 person.setPersonAddress(address);
                 person.setPerson_neck(Integer.parseInt(size_neck));
+                person.setPerson_chest(Integer.parseInt(size_chest));
                 person.setPerson_waist(Integer.parseInt(size_waist));
                 person.setPerson_hip(Integer.parseInt(size_hip));
-                person.setPerson_chest(Integer.parseInt(size_chest));
-                person.setPerson_arm(Integer.parseInt(size_arm));
-                person.setPerson_handcuff(Integer.parseInt(size_handCuff));
+                person.setPerson_pantSeat(Integer.parseInt(size_pantSeat));
                 person.setPerson_shirtLength(Integer.parseInt(size_shirtLength));
+                person.setPerson_ShoulderWidth(Integer.parseInt(size_shoulderWidth));
+                person.setPerson_arm(Integer.parseInt(size_arm));
+                person.setPerson_CoatSleeve(Integer.parseInt(size_coatSleeve));
+                person.setPerson_handcuff(Integer.parseInt(size_handCuff));
+
                 person.setPerson_legOpening(Integer.parseInt(size_legOpening));
                 person.setLastProfileUpdateDate(currentDate);
 

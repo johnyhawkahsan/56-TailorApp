@@ -125,6 +125,19 @@
 
                     </android.support.design.widget.TextInputLayout>
 
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/textInputChest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Chest"
+                            android:inputType="number"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
@@ -161,14 +174,44 @@
                         android:layout_height="wrap_content">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/textInputChest"
+                            android:id="@+id/textInputPantSeat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Chest"
+                            android:hint="Pant Seat"
                             android:inputType="number"
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/textInputShirtLength"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Shirt Length"
+                            android:inputType="number"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/textInputShoulderWidth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Shoulder Width"
+                            android:inputType="number"
+                            android:lines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
+
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
@@ -189,10 +232,10 @@
                         android:layout_height="wrap_content">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/textInputHandCuff"
+                            android:id="@+id/textInputCoatSleeve"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hand Cuff"
+                            android:hint="Coat Sleeve"
                             android:inputType="number"
                             android:lines="1" />
 
@@ -203,14 +246,16 @@
                         android:layout_height="wrap_content">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/textInputShirtLength"
+                            android:id="@+id/textInputHandCuff"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Shirt Length"
+                            android:hint="Hand Cuff"
                             android:inputType="number"
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+
+
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"

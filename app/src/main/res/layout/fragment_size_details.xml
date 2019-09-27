@@ -185,7 +185,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_margin="@dimen/default_margin">
+                    android:layout_margin="@dimen/default_margin"
+                    android:padding="@dimen/default_margin">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/neck"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -204,6 +211,8 @@
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         style="@style/CustomerTextView"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
@@ -214,61 +223,10 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/default_margin">
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:drawablePadding="@dimen/default_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        style="@style/CustomerLabelTextView"
-                        android:layout_marginEnd="@dimen/default_margin"
-                        android:text="Waist"/>
-
-                    <TextView
-                        android:id="@+id/tvWaist"
-                        style="@style/CustomerTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/default_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        tools:text="00" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/default_margin">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:drawablePadding="@dimen/default_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        style="@style/CustomerLabelTextView"
-                        android:layout_marginEnd="@dimen/default_margin"
-                        android:text="Hip"/>
-
-                    <TextView
-                        android:id="@+id/tvHip"
-                        style="@style/CustomerTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/default_margin"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        tools:text="00" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/default_margin">
+                        android:src="@drawable/chest"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -287,16 +245,22 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/waist"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -306,24 +270,32 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         style="@style/CustomerLabelTextView"
                         android:layout_marginEnd="@dimen/default_margin"
-                        android:text="Arm"/>
+                        android:text="Waist"/>
 
                     <TextView
-                        android:id="@+id/tvArm"
+                        android:id="@+id/tvWaist"
                         style="@style/CustomerTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/hip"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -333,24 +305,67 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         style="@style/CustomerLabelTextView"
                         android:layout_marginEnd="@dimen/default_margin"
-                        android:text="Hand Cuff"/>
+                        android:text="Hip"/>
 
                     <TextView
-                        android:id="@+id/tvHandCuff"
+                        android:id="@+id/tvHip"
                         style="@style/CustomerTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pant_seat"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        style="@style/CustomerLabelTextView"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:text="Pant Seat"/>
+
+                    <TextView
+                        android:id="@+id/tvPantSeat"
+                        style="@style/CustomerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:text="00" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shirtlength"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -369,6 +384,43 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:text="00" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shoulderwidth"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        style="@style/CustomerLabelTextView"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:text="Shoulder Width"/>
+
+                    <TextView
+                        android:id="@+id/tvShoulderWidth"
+                        style="@style/CustomerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
@@ -378,6 +430,117 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arm_length"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        style="@style/CustomerLabelTextView"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:text="Arm Length"/>
+
+                    <TextView
+                        android:id="@+id/tvArm"
+                        style="@style/CustomerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:text="00" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/coat_sleeve"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        style="@style/CustomerLabelTextView"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:text="Coat Sleeve"/>
+
+                    <TextView
+                        android:id="@+id/tvCoatSleeve"
+                        style="@style/CustomerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:text="00" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cuff_sleeve"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        style="@style/CustomerLabelTextView"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:text="Wrist"/>
+
+                    <TextView
+                        android:id="@+id/tvHandCuff"
+                        style="@style/CustomerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/default_margin"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:text="00" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/default_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/leg_opening"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -396,6 +559,8 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/default_margin"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         tools:text="00" />
 
                 </LinearLayout>
@@ -406,6 +571,7 @@
                     android:orientation="vertical"
                     android:layout_margin="@dimen/default_margin">
 
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -414,6 +580,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         style="@style/CustomerLabelTextView"
                         android:layout_marginEnd="@dimen/default_margin"
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:text="Profile Updated on"/>
 
@@ -425,6 +592,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         style="@style/CustomerTextView"
                         android:layout_gravity="center"
+                        android:gravity="center"
                         tools:text="19-July-2019" />
 
                 </LinearLayout>
