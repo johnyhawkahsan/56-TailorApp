@@ -109,25 +109,51 @@
                         android:textColor="@color/design_default_color_primary"
                         android:textSize="20sp" />
 
-
-
-                    <android.support.design.widget.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <android.support.design.widget.TextInputEditText
-                            android:id="@+id/textInputNeck"
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Neck"
-                            android:inputType="number"
-                            android:lines="1" />
+                            android:src="@drawable/neck" />
 
-                    </android.support.design.widget.TextInputLayout>
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:layout_gravity="center">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/textInputNeck"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Neck"
+                                android:inputType="number"
+                                android:lines="1" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/chest" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputChest"
@@ -139,9 +165,27 @@
 
                     </android.support.design.widget.TextInputLayout>
 
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/waist" />
+
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputWaist"
@@ -152,11 +196,27 @@
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
 
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/hip" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputHip"
@@ -168,10 +228,26 @@
 
                     </android.support.design.widget.TextInputLayout>
 
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pant_seat" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputPantSeat"
@@ -182,10 +258,24 @@
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shirtlength" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputShirtLength"
@@ -196,11 +286,24 @@
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/shoulderwidth" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputShoulderWidth"
@@ -211,39 +314,84 @@
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arm_length" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputArm"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Arm"
+                            android:hint="Arm Length"
                             android:inputType="number"
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/coat_sleeve" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputCoatSleeve"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Coat Sleeve"
+                            android:layout_gravity="center"
                             android:inputType="number"
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cuff_sleeve" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputHandCuff"
@@ -254,22 +402,38 @@
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/leg_opening" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:layout_gravity="center">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/textInputLegOpening"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Leg Opening"
+                            android:layout_gravity="center"
                             android:inputType="number"
                             android:lines="1" />
 
                     </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
@@ -280,6 +444,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Last Profile Update Date"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:inputType="date"
                             android:lines="1" />
 
