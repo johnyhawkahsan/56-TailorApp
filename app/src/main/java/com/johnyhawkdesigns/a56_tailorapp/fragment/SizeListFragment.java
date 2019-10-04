@@ -58,7 +58,7 @@ public class SizeListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_sizes_list, container, false);// Inflate the layout for this fragment
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);// Inflate the layout for this fragment
 
 
         recyclerView = view.findViewById(R.id.recyclerViewSizeList);

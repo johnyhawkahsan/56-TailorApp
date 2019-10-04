@@ -6,10 +6,6 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/icon_home"
             android:title="@string/nav_home" />
-        <item
-            android:id="@+id/nav_size"
-            android:icon="@drawable/icon_body_size"
-            android:title="@string/nav_sizes" />
 
         <item
             android:id="@+id/nav_orders"

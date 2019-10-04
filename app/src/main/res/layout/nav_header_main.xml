@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_container"
     android:layout_width="match_parent"
@@ -33,13 +34,17 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textSize="30dp"
+            android:fontFamily="@font/mehr_nastaleeq"
+            android:text="ٹیلر ماسٹر"/>
 
         <TextView
             android:id="@+id/website"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mehr_nastaleeq"
+            android:text="ٹیلرز کی مددگار ایپ"
+            android:textSize="25dp"/>
 
     </LinearLayout>
 </RelativeLayout>

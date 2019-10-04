@@ -51,4 +51,8 @@ dependencies {
     androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
 
 
+    // Room Components
+    def pagingVersion = "1.0.1"
+    implementation "android.arch.paging:runtime:$pagingVersion"
+
 }

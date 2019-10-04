@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -27,7 +26,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.johnyhawkdesigns.a56_tailorapp.R;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.AddEditPersonFragment;
-import com.johnyhawkdesigns.a56_tailorapp.fragment.HomeFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.OrderFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SettingsFragment;
 import com.johnyhawkdesigns.a56_tailorapp.fragment.SizeDetailFragment;
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
-    private static final String TAG_SIZES = "Size";
     private static final String TAG_ORDERS = "orders";
     private static final String TAG_SETTINGS = "settings";
     public static String CURRENT_TAG = TAG_HOME;
@@ -103,13 +100,10 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-
-
         mHandler = new Handler();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout); // android.support.v4.widget.DrawerLayout inside activity_main.xml
         navigationView = (NavigationView) findViewById(R.id.nav_view);  // android.support.design.widget.NavigationView inside activity_main.xml
-        fab = (FloatingActionButton) findViewById(R.id.fab); //android.support.design.widget.FloatingActionButton inside activity_main.xml
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
@@ -120,14 +114,6 @@ public class MainActivity extends AppCompatActivity implements
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         // load nav menu header data
         loadNavHeader();
@@ -144,11 +130,8 @@ public class MainActivity extends AppCompatActivity implements
         }
 
 
-
-
         // Get ViewModel
         personViewModel = new PersonViewModel(getApplication());
-
     }
 
 
@@ -159,8 +142,8 @@ public class MainActivity extends AppCompatActivity implements
      */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Tailor App");
-        txtWebsite.setText("An App to facilitate tailors");
+        //txtName.setText("Tailor App");
+        //txtWebsite.setText("An App to facilitate tailors");
 
         // loading header background image
         Glide.with(this).load(R.drawable.nav_menu_header)
@@ -199,11 +182,9 @@ public class MainActivity extends AppCompatActivity implements
 
         /*
         //*****I skipped this code below helps solve the "stuck fragment" problem when I visit detail view of user and return back
-
         // if user select the current navigation menu again, don't do anything just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
             drawer.closeDrawers();
-
             // show or hide the fab button
             toggleFab();
             return;
@@ -230,8 +211,6 @@ public class MainActivity extends AppCompatActivity implements
             mHandler.post(mPendingRunnable); // Post Runnable to Handler
         }
 
-        // show or hide the fab button
-        toggleFab();
 
         //Closing drawer on item click
         drawer.closeDrawers();
@@ -244,24 +223,20 @@ public class MainActivity extends AppCompatActivity implements
     private Fragment getHomeFragment() {
         switch (navItemIndex) {
             case 0:
-                // home
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
-            case 1:
                 // Size fragment
                 SizeListFragment sizeListFragment = new SizeListFragment();
                 return sizeListFragment;
-            case 2:
+            case 1:
                 // order fragment
                 OrderFragment orderFragment = new OrderFragment();
                 return orderFragment;
-            case 3:
+            case 2:
                 // settings fragment
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
 
             default:
-                return new HomeFragment();
+                return new SizeListFragment();
         }
     }
 
@@ -291,20 +266,15 @@ public class MainActivity extends AppCompatActivity implements
                     case R.id.nav_home:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
-                        Log.d(TAG, "onNavigationItemSelected: switching to home fragment");
-                        break;
-                    case R.id.nav_size:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_SIZES;
-                        Log.d(TAG, "onNavigationItemSelected: switching to Size fragment");
+                        Log.d(TAG, "onNavigationItemSelected: switching to sizes fragment");
                         break;
                     case R.id.nav_orders:
-                        navItemIndex = 2;
+                        navItemIndex = 1;
                         CURRENT_TAG = TAG_ORDERS;
                         Log.d(TAG, "onNavigationItemSelected: switching to orders fragment");
                         break;
                     case R.id.nav_settings:
-                        navItemIndex = 3;
+                        navItemIndex = 2;
                         CURRENT_TAG = TAG_SETTINGS;
                         Log.d(TAG, "onNavigationItemSelected: switching to settings fragment");
                         break;
@@ -380,10 +350,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-
         return true;
     }
 
@@ -391,9 +359,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here. The action bar will automatically handle clicks on the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -409,7 +375,6 @@ public class MainActivity extends AppCompatActivity implements
                 public void onClick(DialogInterface dialog, int which) {
                     AppUtils.showMessage(MainActivity.this, "Delete all persons success" );
                     personViewModel.deleteAllPersons();
-                    //adapter.notifyDataSetChanged();
                     finish();
                 }
             });
@@ -427,13 +392,6 @@ public class MainActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-    // show or hide the fab
-    private void toggleFab() {
-        if (navItemIndex == 0)
-            fab.show();
-        else
-            fab.hide();
-    }
 
 
     @Override
@@ -445,6 +403,7 @@ public class MainActivity extends AppCompatActivity implements
     public void onPersonSelected(int personID) {
         Log.d(TAG, "onPersonSelected: personID = " + personID);
 
+        // Create new SizeDetailFragment and pass personID in bundle arguments
         SizeDetailFragment sizeDetailFragment = new SizeDetailFragment();
         Bundle args = new Bundle();
         args.putInt("personID", personID);
@@ -465,13 +424,14 @@ public class MainActivity extends AppCompatActivity implements
     public void onEditPerson(int personID) {
         Log.d(TAG, "onEditPerson: personID = " + personID);
 
+        // Create new AddEditPersonFragment and pass personID in bundle arguments
         AddEditPersonFragment addEditPersonFragment = new AddEditPersonFragment();
         Bundle args = new Bundle();
         args.putInt("personID", personID);
         addEditPersonFragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, addEditPersonFragment);
+        transaction.replace(R.id.frame, addEditPersonFragment); //
         transaction.addToBackStack(null);
         transaction.commit();
 
