@@ -1,14 +1,13 @@
 package com.johnyhawkdesigns.a56_tailorapp;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.TailorRoomDatabase;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.PersonDao;
-import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.viewModel.PersonViewModel;
 
 import org.junit.After;
 import org.junit.Before;

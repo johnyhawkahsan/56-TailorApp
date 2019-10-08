@@ -1,15 +1,15 @@
 package com.johnyhawkdesigns.a56_tailorapp.roomdatabase;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 import android.content.Context;
 import android.util.Log;
 
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.PersonDao;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
 
-@Database(entities = {Person.class}, version = 1)
+@Database(entities = {Person.class}, version = 1, exportSchema = false)
 public abstract class TailorRoomDatabase extends RoomDatabase {
 
     private static final String TAG = TailorRoomDatabase.class.getSimpleName();

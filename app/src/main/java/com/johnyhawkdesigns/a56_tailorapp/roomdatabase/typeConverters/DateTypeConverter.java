@@ -1,6 +1,6 @@
 package com.johnyhawkdesigns.a56_tailorapp.roomdatabase.typeConverters;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import java.text.DateFormat;
 import java.text.ParseException;

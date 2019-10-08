@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/searchSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:queryHint="Search Size"
             android:iconifiedByDefault="false" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSizeList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,7 +30,7 @@
     <include layout="@layout/empty_data"/>
 
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNewSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
