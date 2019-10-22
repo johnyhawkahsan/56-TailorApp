@@ -35,14 +35,25 @@ public class AppUtils {
         return null;
     }
 
-    // Get Date with time set to 00:00:00 - https://stackoverflow.com/questions/5050170/how-do-i-get-a-date-without-time-in-java
+    /**
+     * Get Date with time set to 00:00:00
+     * https://stackoverflow.com/questions/5050170/how-do-i-get-a-date-without-time-in-java
+     * @param dateWithTime date in Date format along with time
+     * @return Date formatted date without time
+     */
+    //
     public static Date getDateWithoutTime(Date dateWithTime) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateWithoutTime = sdf.parse(sdf.format(dateWithTime));
         return dateWithoutTime;
     }
 
-    // Toast message outline
+
+    /**
+     * Toast message outline
+     * @param context the context of the Activity
+     * @param message the message that you need to display
+     */
     public static void showMessage(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
