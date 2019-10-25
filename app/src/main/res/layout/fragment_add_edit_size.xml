@@ -35,6 +35,13 @@
                     android:orientation="vertical"
                     android:padding="@dimen/default_padding">
 
+                    <ImageView
+                        android:id="@+id/addCustomerImage"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_body_size"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -446,7 +453,8 @@
                             android:hint="Last Profile Update Date"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:inputType="date"
+                            android:textSize="10sp"
+                            android:textStyle="italic"
                             android:lines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -459,7 +467,7 @@
                         android:layout_marginTop="20dip"
                         android:background="#ea4c88"
                         android:text="Save"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/design_default_color_primary"
                         android:layout_gravity="bottom" />
 
                 </LinearLayout>

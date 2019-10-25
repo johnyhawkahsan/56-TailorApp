@@ -3,6 +3,7 @@ package com.johnyhawkdesigns.a56_tailorapp.fragment;
 import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,8 +16,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.johnyhawkdesigns.a56_tailorapp.R;
 import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
@@ -39,6 +43,7 @@ public class SizeDetailFragment extends Fragment {
 
     public int personID;
 
+    private ImageView ivPersonImage;
     private TextView textViewName;
     private TextView textViewCustID;
     private TextView tvCustName;
@@ -59,6 +64,7 @@ public class SizeDetailFragment extends Fragment {
     private TextView tvLastProfileUpdateDate;
 
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,6 +78,7 @@ public class SizeDetailFragment extends Fragment {
             Log.d(TAG, "onCreateView: received personID = " + personID);
         }
 
+        ivPersonImage = view.findViewById(R.id.imageViewPersonImage);
         textViewName = view.findViewById(R.id.textViewName);
         textViewCustID = view.findViewById(R.id.textViewCustID);
         tvCustName = view.findViewById(R.id.tvCustName);
@@ -108,7 +115,6 @@ public class SizeDetailFragment extends Fragment {
                 tvMobileNo.setText(person.getMobileNo());
                 tvMobileNoAlternate.setText(person.getMobileNoAlternate());
                 tvAddress.setText(person.getPersonAddress());
-
                 tvNeck.setText(String.valueOf(person.getPerson_neck()));
                 tvChest.setText(String.valueOf(person.getPerson_chest()));
                 tvWaist.setText(String.valueOf(person.getPerson_waist()));
@@ -122,6 +128,15 @@ public class SizeDetailFragment extends Fragment {
                 tvLegOpening.setText(String.valueOf(person.getPerson_legOpening()));
                 tvLastProfileUpdateDate.setText(String.valueOf(person.getLastProfileUpdateDate()));
 
+                if (person.getPersonImage() != null){
+                    Log.d(TAG, "onChanged: person has image, now load into ImageView");
+                    Bitmap personImageBitmap = AppUtils.getBitmapFromByteArray(person.getPersonImage());
+                    Glide
+                            .with(getActivity())
+                            .load(personImageBitmap)
+                            .apply(RequestOptions.circleCropTransform())
+                            .into(ivPersonImage);
+                }
 
             }
         });

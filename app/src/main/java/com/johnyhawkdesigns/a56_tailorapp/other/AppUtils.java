@@ -2,9 +2,12 @@ package com.johnyhawkdesigns.a56_tailorapp.other;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -63,6 +66,26 @@ public class AppUtils {
     public static void hideKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    /**
+     * Toast message outline
+     * @param bitmap Bitmap image
+     * @param quality the message that you need to display
+     * @return byte[] return byte array and compress Bitmap into jpeg
+     */
+    public static byte[] getBytesFromBitmap(Bitmap bitmap, int quality){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, quality, stream);
+        return stream.toByteArray();
+    }
+
+
+    public static Bitmap getBitmapFromByteArray(byte[] bitmapByteArray){
+        //Bitmap bitmap = BitmapFactory.decodeFile(uri); // if we want to decode uri into Bitmap
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapByteArray, 0, bitmapByteArray.length); // if we want to decode byteArray into Bitmap
+
+        return bitmap;
     }
 
 

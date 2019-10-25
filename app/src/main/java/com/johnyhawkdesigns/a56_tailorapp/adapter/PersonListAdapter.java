@@ -3,17 +3,22 @@ package com.johnyhawkdesigns.a56_tailorapp.adapter;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.johnyhawkdesigns.a56_tailorapp.R;
 import com.johnyhawkdesigns.a56_tailorapp.other.AppUtils;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
@@ -53,6 +58,7 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
     class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private final TextView customerID, customerName, customerMobileNo, customerMobileNoAlternate, customerAddress;
+        private final ImageView customerPic;
 
         public PersonViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +67,7 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
             customerMobileNo = itemView.findViewById(R.id.customerMobileNo);
             customerMobileNoAlternate = itemView.findViewById(R.id.customerMobileNoAlternate);
             customerAddress = itemView.findViewById(R.id.customerAddress);
+            customerPic = itemView.findViewById(R.id.customerPic);
 
             itemView.setOnClickListener(this);
         }
@@ -94,6 +101,16 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
         personViewHolder.customerMobileNo.setText(currentPerson.getMobileNo());
         personViewHolder.customerMobileNoAlternate.setText(currentPerson.getMobileNoAlternate());
         personViewHolder.customerAddress.setText(currentPerson.getPersonAddress());
+
+        if (currentPerson.getPersonImage() != null){
+            Bitmap personImageBitmap = AppUtils.getBitmapFromByteArray(currentPerson.getPersonImage()); // convert this byte[] into bitmap
+            // load image using Glide
+            Glide
+                    .with(mContext)
+                    .load(personImageBitmap)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(personViewHolder.customerPic);
+        }
 
         Log.d(TAG, "onBindViewHolder: currentPerson.getPersonID() = " + currentPerson.getPersonID() +
                 ", \ncurrentPerson.getPersonName() = " + currentPerson.getPersonName());

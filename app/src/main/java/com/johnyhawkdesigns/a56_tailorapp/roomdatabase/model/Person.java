@@ -77,6 +77,13 @@ public class Person implements Serializable{
     @ColumnInfo(name = "person_ShoulderWidth")
     private int person_ShoulderWidth;
 
+
+    @Nullable
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] personImage;
+
+
+
     @Nullable
     public int getPerson_pantSeat() {
         return person_pantSeat;
@@ -248,5 +255,14 @@ public class Person implements Serializable{
 
     public void setLastProfileUpdateDate(Date lastProfileUpdateDate) {
         this.lastProfileUpdateDate = lastProfileUpdateDate;
+    }
+
+    @Nullable
+    public byte[] getPersonImage() {
+        return personImage;
+    }
+
+    public void setPersonImage(@Nullable byte[] personImage) {
+        this.personImage = personImage;
     }
 }
