@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class AppUtils {
 
-    // Method to get current time
+    // Method to get current time from Calender
     public static Date getCurrentDateTime(){
         Date currentDate =  Calendar.getInstance().getTime();
         return currentDate;
@@ -69,10 +69,10 @@ public class AppUtils {
     }
 
     /**
-     * Toast message outline
-     * @param bitmap Bitmap image
-     * @param quality the message that you need to display
-     * @return byte[] return byte array and compress Bitmap into jpeg
+     * Input Bitmap along with quality and output database compatible BitmapByteArray
+     * @param bitmap Bitmap image that need to converted to bitmapByteArray
+     * @param quality the amount of quality to compress JPEG file i.e; 100
+     * @return byte[] return a compressed byte array after converting Bitmap image
      */
     public static byte[] getBytesFromBitmap(Bitmap bitmap, int quality){
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -80,7 +80,11 @@ public class AppUtils {
         return stream.toByteArray();
     }
 
-
+    /**
+     * Input database readable bitmapByteArray and output a Bitmap image
+     * @param bitmapByteArray bitmap byte array
+     * @return bitmap return bitmap by converting byte array
+     */
     public static Bitmap getBitmapFromByteArray(byte[] bitmapByteArray){
         //Bitmap bitmap = BitmapFactory.decodeFile(uri); // if we want to decode uri into Bitmap
         Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapByteArray, 0, bitmapByteArray.length); // if we want to decode byteArray into Bitmap

@@ -178,6 +178,17 @@ public class AddEditPersonFragment extends Fragment {
                     textInputLegOpening.setText(String.valueOf(person.getPerson_legOpening()));
                     textInputProfileUpdateDate.setText(profileUpdateDateString);
 
+                    // If editing profile person has already image provided, we need to take out this image and assign to our variable selectedImageBitmap
+                    if (person.getPersonImage() != null){
+                        Log.d(TAG, "onChanged: person has image, now load into ImageView");
+                        selectedImageBitmap = AppUtils.getBitmapFromByteArray(person.getPersonImage());
+                        Glide
+                                .with(getActivity())
+                                .load(selectedImageBitmap)
+                                .apply(RequestOptions.circleCropTransform())
+                                .into(addCustomerImage);
+                    }
+
                 }
             });
 
@@ -275,6 +286,13 @@ public class AddEditPersonFragment extends Fragment {
                 person.setPerson_legOpening(Integer.parseInt(size_legOpening));
                 person.setLastProfileUpdateDate(currentDate);
 
+                // In case of editing old record, we need to check if user already had image stored
+                if (selectedImageBitmap != null){
+                    person.setPersonImage(AppUtils.getBytesFromBitmap(selectedImageBitmap, 100));
+                }
+
+
+                // In case of adding new record, we need to check returned uri
                 if (selectedImageUri != null){
                     Log.d(TAG, "doInBackground: Kilobytes before compression: " + selectedImageBitmap.getByteCount());
                     Log.d(TAG, "doInBackground: megabytes before compression: " + selectedImageBitmap.getByteCount() / 1000000);//To get image size before compression, dividing by 1000000 is size of mega bytes
@@ -287,6 +305,8 @@ public class AddEditPersonFragment extends Fragment {
 
                     person.setPersonImage(bitmapByteArray); // store this image byte array to our database table
                 }
+
+
 
                 // If addingNewRecord is true and we are not editing existing record
                 if (addingNewRecord){
