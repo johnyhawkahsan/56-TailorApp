@@ -5,6 +5,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.annotation.NonNull;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.repository.PersonRepository;
@@ -35,6 +37,28 @@ public class PersonViewModel extends AndroidViewModel{
     //Insert method
     public void insert(Person person){
         personRepository.insert(person);
+
+        personRepository.returnInsertObservable().subscribe(new Observer<Person>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Person person) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     // find method - this method will begin searching in personRepository, and then returned results are stored within search result returned by AsyncTask

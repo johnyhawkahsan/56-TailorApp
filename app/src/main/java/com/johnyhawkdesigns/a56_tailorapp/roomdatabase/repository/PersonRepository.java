@@ -3,6 +3,13 @@ package com.johnyhawkdesigns.a56_tailorapp.roomdatabase.repository;
 import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,6 +19,7 @@ import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.dao.PersonDao;
 import com.johnyhawkdesigns.a56_tailorapp.roomdatabase.model.Person;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 
 /*
@@ -40,9 +48,31 @@ public class PersonRepository implements AsyncResult {
 
 
     // ===================================================Insert Method==============================================================//
+    public Observable<Person> insertObservable;
+
+    public Observable<Person> returnInsertObservable(){
+        return insertObservable;
+    }
+
     public void insert(Person person){
+
+        PersonDao mAsyncTaskDao;
+
+        insertObservable = Observable
+                .create(new ObservableOnSubscribe<Person>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<Person> emitter) throws Exception {
+                        Log.d(TAG, "subscribe: ");
+
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
         new PersonRepository.insertAsyncTask(personDao).execute(person); // add this person object using asyncTask to PersonDao
     }
+
+
 
     // Inner Class asyncTask to insert Person data
     private static class insertAsyncTask extends AsyncTask<Person, Void, Void> { // Nothing needs to be reuturned from this class, because we
