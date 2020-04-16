@@ -55,20 +55,6 @@ public class PersonRepository implements AsyncResult {
     }
 
     public void insert(Person person){
-
-        PersonDao mAsyncTaskDao;
-
-        insertObservable = Observable
-                .create(new ObservableOnSubscribe<Person>() {
-                    @Override
-                    public void subscribe(ObservableEmitter<Person> emitter) throws Exception {
-                        Log.d(TAG, "subscribe: ");
-
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-
         new PersonRepository.insertAsyncTask(personDao).execute(person); // add this person object using asyncTask to PersonDao
     }
 
